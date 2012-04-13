@@ -154,8 +154,8 @@ function scholar_search_results_form(array &$form_state, IslandoraSolrQueryProce
     $pid = $doc->PID;
     $result = '';
     $pids[] = $pid;
-    //$result = theme(THEME_SCHOLAR_SEARCH_ITEM, $pid, $style); //XXX: Might want to use ITEM_ALT and the solr doc instead?
-    $result = theme(THEME_SCHOLAR_SEARCH_ITEM_ALT, $doc, $style);
+    $result = theme(THEME_SCHOLAR_SEARCH_ITEM, $pid, $style); //XXX: Might want to use ITEM_ALT and the solr doc instead?
+    // $result = theme(THEME_SCHOLAR_SEARCH_ITEM_ALT, $doc, $style);
     $table['rows'][] = array(
       '#pid' => $pid,
       'result' => array('#value' => $result),
