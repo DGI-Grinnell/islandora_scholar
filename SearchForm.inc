@@ -194,6 +194,7 @@ function scholar_search_form_build_query(array &$form_state) {
     }
   }
   $query = !empty($statements) ? implode(' AND ', $statements) : '*:*'; // Empty return all results. 
+  $query .= ' '. $form_state['values']['sort'] .' '. $form_state['values']['order'];
   return $query;
 }
 
