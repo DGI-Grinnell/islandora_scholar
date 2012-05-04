@@ -416,7 +416,7 @@ function convert_mods_to_citeproc_json_names(SimpleXMLElement $mods) {
    */
   $queries = array(
     0 => array(
-      '/mods:mods/mods:name', // Path
+      '/mods:mods/mods:name[mods:namePart/text()]', // Path
       'author', // Default Role
       array(// Valid Roles
         'editor' => 'editor',
