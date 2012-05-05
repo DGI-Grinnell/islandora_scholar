@@ -197,7 +197,7 @@ function scholar_search_results_form(array &$form_state, IslandoraSolrQueryProce
         'style' => array(
           '#type' => 'select',
           '#options' => CSL::GetNames(),
-          '#default_value' => $style,
+          '#default_value' => CSL::GetDefaultName(),
         ),
         'export all' => array(
           '#type' => 'submit',
