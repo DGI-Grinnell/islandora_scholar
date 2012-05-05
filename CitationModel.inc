@@ -122,6 +122,8 @@ function template_preprocess_scholar_overview_panel_citation(array &$variables) 
     $variables['citation'][] = $html;
     $variables['styles'][$id] = $name;
   }
+  $default_style_name = CSL::GetDefaultName();
+  $variables['default_style_name'] = $default_style_name;
   // Abstract
   if (isset($item->datastreams['MODS'])) {
     $mods = $item->get_datastream_dissemination('MODS');

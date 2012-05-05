@@ -5,7 +5,11 @@
     </h3> 
     <select id="style" class="form-select" onchange="jQuery('.citeproc-bibliography').attr('id', this.value); Drupal.settings.citeproc.refresh = true; Drupal.attachBehaviors();">
       <?php foreach ($styles as $id => $name) : ?>
-        <option value="<?php print $id ?>"><?php print $name ?></option>
+        <?php if ($name == $default_style_name): ?>
+          <option value="<?php print $id ?>" selected="selected"><?php print $name ?></option>
+        <?php else: ?>
+          <option value="<?php print $id ?>"><?php print $name ?></option>
+        <?php endif; ?>
       <?php endforeach; ?>
     </select>
     <?php print print_r($citation[0], TRUE); ?>
