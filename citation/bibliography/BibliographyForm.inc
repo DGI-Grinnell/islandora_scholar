@@ -41,7 +41,8 @@ function islandora_bibliography_form(array &$form_state) {
         'preview_style' => array(
           '#title' => t('Style'),
           '#type' => 'select',
-          '#options' => $styles
+          '#options' => $styles,
+          '#default_value' => CSL::GetDefaultName(),
         ),
         'preview' => array(
           '#type' => 'submit',
@@ -71,7 +72,8 @@ function islandora_bibliography_form(array &$form_state) {
         'style' => array(
           '#title' => t('Style'),
           '#type' => 'select',
-          '#options' => $styles
+          '#options' => $styles,
+          '#default_value' => CSL::GetDefaultName(),
         ),
         'export' => array(
           '#type' => 'submit',
