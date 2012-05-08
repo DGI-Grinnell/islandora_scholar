@@ -142,11 +142,12 @@ EOT
         '#title' => t('Sort By'),
         '#type' => 'select',
         '#default_value' => (isset($values['sort']) ? $values['sort'] : 'score'),
-        '#options' => array(
-          'score' => t('Relevance'),
-          'mods_title_mlt' => t('Title'),
-          'mods_dateIssued_s' => t('Date Issued'),
-        ),
+        '#options' => islandora_build_substitution_list(variable_get('islandora_search_sort', <<<EOT
+score ~ Relevance
+dc.title ~ Title
+mods.dateIssued ~ Date Issued
+EOT
+          )),
       ),
       'order' => array(
         '#title' => t('Order'),
