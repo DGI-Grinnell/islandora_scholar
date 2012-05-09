@@ -453,7 +453,9 @@ function convert_mods_to_citeproc_json_names(SimpleXMLElement $mods) {
       foreach ($names as $name) {
         add_mods_namespace($name);
         $role = convert_mods_to_citeproc_json_name_role($name, $valid_roles, $default_role);
-        $output[$role][] = convert_mods_to_citeproc_json_name($name);
+        if ($role) {
+          $output[$role][] = convert_mods_to_citeproc_json_name($name);
+        }
       }
     }
   }
@@ -548,7 +550,7 @@ function convert_mods_to_citeproc_json_name_role(SimpleXMLElement $name, array $
     }
     return array_key_exists($role, $valid_roles) ? $valid_roles[$role] : $default_role;
   }
-  return $default_role;
+  return FALSE; // don't return $default_role anymore
 }
 
 function _try_parse_date(&$output, $date_string) {
