@@ -416,7 +416,7 @@ function convert_mods_to_citeproc_json_names(SimpleXMLElement $mods) {
    */
   $queries = array(
     0 => array(
-      '/mods:mods/mods:name[mods:namePart/text()]', // Path
+      '/mods:mods/mods:name[mods:namePart[@type and normalize-space()]]', // Path
       'author', // Default Role
       array(// Valid Roles
         'editor' => 'editor',
@@ -490,7 +490,7 @@ function convert_mods_to_citeproc_json_name(SimpleXMLElement $name) {
  */
 function convert_mods_to_citeproc_json_name_personal(SimpleXMLElement $name) {
   $output = array();
-  $nameParts = $name->xpath("mods:namePart");
+  $nameParts = $name->xpath("mods:namePart[@type]");
   foreach ($nameParts as $namePart) {
     $type = (string) $namePart->attributes()->type;
     $content = (string) $namePart;
