@@ -548,7 +548,7 @@ function convert_mods_to_citeproc_json_name_role(SimpleXMLElement $name, array $
         $role = marcrelator_code_to_term($role);
       }
     }
-    return array_key_exists($role, $valid_roles) ? $valid_roles[$role] : $default_role;
+    return array_key_exists($role, $valid_roles) ? $valid_roles[$role] : FALSE;
   }
   return FALSE; // don't return $default_role anymore
 }
