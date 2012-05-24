@@ -233,7 +233,7 @@ function scholar_search_results_form(array &$form_state, IslandoraSolrQueryProce
         ),
         'goto biblio' => array(
           '#type' => 'submit',
-          '#value' => t('Go to saved Bibliography'),
+          '#value' => t('Go to Saved Bibliography'),
           '#submit' => array('scholar_redirect_to_bibliography')
         )
       ),
