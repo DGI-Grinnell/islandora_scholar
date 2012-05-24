@@ -12,7 +12,7 @@
         <?php endif; ?>
       <?php endforeach; ?>
     </select>
-    <?php print print_r($citation[0], TRUE); ?>
+    <?php print print_r($citation[$default_style_index], TRUE); ?>
     <?php print drupal_get_form('islandora_bibliography_citation_form', $pid); ?>
   </div>
   <?php if (!empty($accessnum)): ?>
