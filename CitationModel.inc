@@ -118,8 +118,8 @@ function template_preprocess_scholar_overview_panel_citation(array &$variables) 
   // Citations
   $styles = CSL::GetNames();
   $default_style_name = CSL::GetDefaultName();
-  $variables['default_style_index'] = $default_style_name;
-  $variables['selected_style'] = 0;
+  $variables['default_style_name'] = $default_style_name;
+  $variables['default_style_index'] = 0;
   foreach ($styles as $name) {
     list($id, $html) = $model->getCitation($name);
     $variables['citation'][] = $html;
