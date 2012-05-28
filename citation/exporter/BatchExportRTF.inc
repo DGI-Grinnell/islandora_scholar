@@ -25,7 +25,7 @@ function citation_exporter_batch_get_rtf_operations(array $pids, $style) {
   $total = count($pids);
   $operations = array();
   $header_text = variable_get('fedora_repository_title', 'Fedora Repository');
-  $operations[] = array('citation_exporter_batch_add_header_to_text_file', array($temp_text_file, $header_text));
+  // $operations[] = array('citation_exporter_batch_add_header_to_text_file', array($temp_text_file, $header_text));
   $operations[] = array('citation_exporter_batch_append_citations_to_text_file', array($temp_pids_file, $total, $temp_text_file, $style));
   $operations[] = array('citation_exporter_batch_convert_txt_to_rtf', array($temp_text_file));
   $operations[] = array('citation_exporter_batch_redirect', array($_GET['q'], array($temp_text_file, $temp_pids_file)));
