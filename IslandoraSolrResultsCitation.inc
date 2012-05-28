@@ -190,7 +190,7 @@ function scholar_search_results_form(array &$form_state, IslandoraSolrQueryProce
           '#length' => 50,
           '#options' => array(
             'RIS' => 'RIS (Endnote format)',
-            //'RTF' => 'RTF (word proccessor format)', //FIXME:  Need a new RTF library which can handle unicode...
+            'RTF' => 'RTF (word processor format)', //FIXME:  Need a new RTF library which can handle unicode...
             'PDF' => 'PDF',
           )
         ),
