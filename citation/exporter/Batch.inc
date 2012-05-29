@@ -123,4 +123,10 @@ function citation_exporter_batch_finished($successful, array $results, array $op
   if ($successful) {
     CitationExporter::PrepareToExport($results['filename'], $results['mime_type'], $results['download_filename'], $results['redirect']);
   }
+  else {
+    $error_operation = reset($operations);
+    $message = t('An error occurred while processing %error_operation with arguments: @arguments', array('%error_operation' => $error_operation[0], '@arguments' => print_r($error_operation[1], TRUE)));
+    watchdog('mymodule', 'An error occurred while processing %error_operation with arguments: @arguments', array('%error_operation' => $error_operation[0], '@arguments' => print_r($error_operation[1], TRUE)), WATCHDOG_ERROR);
+    drupal_set_message($message);
+  }
 }
