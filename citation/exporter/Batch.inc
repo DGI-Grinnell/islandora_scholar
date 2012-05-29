@@ -120,7 +120,9 @@ function citation_exporter_batch_redirect($redirect, array $file_to_unlink, arra
  */
 function citation_exporter_batch_finished($successful, array $results, array $operations) {
   module_load_include('inc', 'citation_exporter', 'CitationExporter');
+  watchdog('citation_exporter','Batch export finished');
   if ($successful) {
+    watchdog('citation_exporter','Batch export successful');
     CitationExporter::PrepareToExport($results['filename'], $results['mime_type'], $results['download_filename'], $results['redirect']);
   }
   else {
