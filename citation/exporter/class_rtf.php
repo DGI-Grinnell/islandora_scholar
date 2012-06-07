@@ -305,7 +305,7 @@ class rtf {
         $escaped = "\\" . $character;
         break;
     }
-
+if(ord($character) > 0xFF) {watchdog('class_rtf','Code for %char is %ord',array('%char' => $character, '%ord' => ord($character)));}
     return $escaped;
   }
 
