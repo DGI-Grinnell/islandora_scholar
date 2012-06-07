@@ -137,6 +137,7 @@ function template_preprocess_scholar_overview_panel_citation(array &$variables) 
       $mods->registerXPathNamespace('mods', 'http://www.loc.gov/mods/v3');
       $parts = array(
         'abstract' => '/mods:mods/mods:abstract',
+        'author' => '/mods:mods/mods:abstract',
         'subject' => '/mods:mods/mods:subject/mods:topic',
         'grant_number' => '/mods:mods/mods:name[@type="corporate"]/mods:role[mods:roleTerm[@type="text"]="funding agency"]/../mods:description[@type="grant number"]',
         'funding_agency' => '/mods:mods/mods:name[@type="corporate"]/mods:role[mods:roleTerm[@type="text"]="funding agency"]/../mods:namePart',
