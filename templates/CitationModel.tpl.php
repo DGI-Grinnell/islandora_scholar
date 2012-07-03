@@ -24,6 +24,100 @@
       <div id="abstract-content" class="overview-field-content"><?php print print_r($abstract, TRUE); ?></div>
     </div>
   <?php endif; ?>
+ 
+  <?php if (!empty($author)): ?>
+    <div id="author" class="overview-field">
+      <h3><?php print t('Author:') ?></h3>
+      <div id="author-content" class="author-field-content"><?php print print_r($author, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  
+ 
+ <h3><?php print t('Editor:') ?></h3>
+ <h3><?php print t('Contributor:') ?></h3>
+ <h3><?php print t('Advisor:') ?></h3>
+ <h3><?php print t('Illustrator:') ?></h3>
+ <h3><?php print t('Office:') ?></h3>
+ <h3><?php print t('Dept.:') ?></h3>
+ <h3><?php print t('Concentration:') ?></h3>
+ <h3><?php print t('Program:') ?></h3>
+ <h3><?php print t('Corporate Author:') ?></h3>
+ <h3><?php print t('Investigator Name:') ?></h3>
+ <h3><?php print t('Subject:') ?></h3>
+ <h3><?php print t('LCSH:') ?></h3>
+ <h3><?php print t('Topic:') ?></h3>
+ <h3><?php print t('Place:') ?></h3>
+ <h3><?php print t('Chonological:') ?></h3>
+ <h3><?php print t('Keyword:') ?></h3>
+ <h3><?php print t('Other:') ?></h3>
+ <h3><?php print t('Classification:') ?></h3>
+ <h3><?php print t('LLC:') ?></h3>
+ <h3><?php print t('DCC:') ?></h3>
+ <h3><?php print t('Publisher:') ?></h3>
+ <h3><?php print t('Coverage:') ?></h3>
+ <h3><?php print t('Latitude:') ?></h3>
+ <h3><?php print t('Longitude:') ?></h3>
+ <h3><?php print t('Temporal:') ?></h3>
+ <h3><?php print t('Date:') ?></h3>
+ <h3><?php print t('Format:') ?></h3>
+ <h3><?php print t('Medum:') ?></h3>
+ <h3><?php print t('Mimetype:') ?></h3>
+ <h3><?php print t('Extent:') ?></h3>
+ <h3><?php print t('Relations:') ?></h3>
+ <h3><?php print t('URI:') ?></h3>
+ <h3><?php print t('Is from of:') ?></h3>
+ <h3><?php print t('Is part of series:') ?></h3>
+ <h3><?php print t('Is part of series URI:') ?></h3>
+ <h3><?php print t('Is part of:') ?></h3>
+ <h3><?php print t('Is part of URI:') ?></h3>
+ <h3><?php print t('Has part:') ?></h3>
+ <h3><?php print t('Haer part URI:') ?></h3>
+ <h3><?php print t('Is based on:') ?></h3>
+ <h3><?php print t('Is based on URI:') ?></h3>
+ <h3><?php print t('Is referenced by:') ?></h3>
+ <h3><?php print t('Is referenced by URI:') ?></h3>
+ <h3><?php print t('Requires:') ?></h3>
+ <h3><?php print t('Requires URI:') ?></h3>
+ <h3><?php print t('Replaces:') ?></h3>
+ <h3><?php print t('Replaces URI:') ?></h3>
+ <h3><?php print t('Is Replaced by:') ?></h3>
+ <h3><?php print t('Is Replaced by URI:') ?></h3>
+ <h3><?php print t('Has version:') ?></h3>
+ <h3><?php print t('Has version URI:') ?></h3>
+ <h3><?php print t('Is version of:') ?></h3>
+ <h3><?php print t('Is version of URI:') ?></h3>
+ <h3><?php print t('Alternative title:') ?></h3>
+ <h3><?php print t('Identifiers:') ?></h3>
+ <h3><?php print t('ISBN:') ?></h3>
+ <h3><?php print t('ISSN:') ?></h3>
+ <h3><?php print t('Identifier:') ?></h3>
+ <h3><?php print t('Edition:') ?></h3>
+ <h3><?php print t('Citation:') ?></h3>
+ <h3><?php print t('Government Document Number:') ?></h3>
+ <h3><?php print t('Other Identifier:') ?></h3>
+ <h3><?php print t('International Standard Music Number:') ?></h3>
+ <h3><?php print t('Uniform Resource Locator:') ?></h3>
+ <h3><?php print t('Serial item and Contribution Identifier:') ?></h3>
+ <h3><?php print t('Grant or Proposal Number:') ?></h3>
+ <h3><?php print t('DOI:') ?></h3>
+ <h3><?php print t('Description:') ?></h3>
+ <h3><?php print t('Table of Contents:') ?></h3>
+ <h3><?php print t('Description:') ?></h3>
+ <h3><?php print t('Affiliation:') ?></h3>
+ <h3><?php print t('Description URI:') ?></h3>
+ <h3><?php print t('Sponsor:') ?></h3>
+ <h3><?php print t('Language:') ?></h3>
+ <h3><?php print t('Date Accessioned:') ?></h3>
+ <h3><?php print t('Date Created:') ?></h3>
+ <h3><?php print t('Date Available:') ?></h3>
+ <h3><?php print t('Submission date:') ?></h3>
+ <h3><?php print t('Date of Publication:') ?></h3>
+ <h3><?php print t('Type:') ?></h3>
+ <h3><?php print t('Time accessed:') ?></h3>
+ <h3><?php print t('Rights:') ?></h3>
+ 
+ 
+ 
   <?php if (!empty($subject)): ?>
     <div id="subject" class="overview-field">
       <h3><?php print t('Subject Heading(s):') ?></h3>
