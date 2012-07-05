@@ -10,6 +10,13 @@ module_load_include('inc', 'fedora_repository', 'api/fedora_item');
 module_load_include('inc', 'content_model_viewer', 'models/AbstractModel');
 
 /**
+ * function for use with array_map().
+ */
+function contributor_format($family,$given) {
+  return "$family, $given";
+}
+
+/**
  * Models the display information a field books should have.
  */
 class CitationModel extends AbstractModel {
@@ -137,7 +144,6 @@ function template_preprocess_scholar_overview_panel_citation(array &$variables) 
       $mods->registerXPathNamespace('mods', 'http://www.loc.gov/mods/v3');
       $parts = array(
         'abstract' => '/mods:mods/mods:abstract',
-        'author' => '/mods:mods/mods:abstract',
         'subject' => '/mods:mods/mods:subject/mods:topic',
         'grant_number' => '/mods:mods/mods:name[@type="corporate"]/mods:role[mods:roleTerm[@type="text"]="funding agency"]/../mods:description[@type="grant number"]',
         'funding_agency' => '/mods:mods/mods:name[@type="corporate"]/mods:role[mods:roleTerm[@type="text"]="funding agency"]/../mods:namePart',
@@ -154,6 +160,16 @@ function template_preprocess_scholar_overview_panel_citation(array &$variables) 
       foreach ($parts as $key => $xpath) {
         if ($nodes = $mods->xpath($xpath)) {
           $variables[$key] = implode('<br/>', $nodes);
+        }
+      }
+
+      $contributor_types = array('author','advisor');
+      foreach ($contributor_types as $contributor_type) {
+        $contributors = $mods->xpath('/mods:mods/mods:name[@type="personal"]/mods:role[mods:roleTerm="'. $contributor_type  .'"]');
+        $contributors_given = $mods->xpath('/mods:mods/mods:name[@type="personal"]/mods:role[mods:roleTerm="'. $contributor_type  .'"]/../mods:namePart[@type="given"]');
+        $contributors_family = $mods->xpath('/mods:mods/mods:name[@type="personal"]/mods:role[mods:roleTerm="'. $contributor_type  .'"]/../mods:namePart[@type="family"]');
+        if ($contributors) {
+          $variables[$contributor_type] = implode('<br/>', array_map('contributor_format',$contributors_family,$contributors_given));
         }
       }
     }
