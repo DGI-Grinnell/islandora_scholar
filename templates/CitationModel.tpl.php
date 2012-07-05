@@ -30,9 +30,14 @@
       <h3><?php print t('Author:') ?></h3>
       <div id="author-content" class="author-field-content"><?php print print_r($author, TRUE); ?></div>
     </div>
-  <?php endif; ?>
-  
- 
+  <?php endif;?>
+  <?php if (!empty($advisor)): ?>
+    <div id="advisor" class="overview-field">
+      <h3><?php print t('Advisor:') ?></h3>
+      <div id="advisor-content" class="advisor-field-content"><?php print print_r($advisor, TRUE); ?></div>
+    </div>
+  <?php endif;?>
+ <!--
  <h3><?php print t('Editor:') ?></h3>
  <h3><?php print t('Contributor:') ?></h3>
  <h3><?php print t('Advisor:') ?></h3>
@@ -115,8 +120,7 @@
  <h3><?php print t('Type:') ?></h3>
  <h3><?php print t('Time accessed:') ?></h3>
  <h3><?php print t('Rights:') ?></h3>
- 
- 
+ -->
  
   <?php if (!empty($subject)): ?>
     <div id="subject" class="overview-field">
