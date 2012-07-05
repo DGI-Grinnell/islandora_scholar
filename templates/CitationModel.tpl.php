@@ -24,7 +24,6 @@
       <div id="abstract-content" class="overview-field-content"><?php print print_r($abstract, TRUE); ?></div>
     </div>
   <?php endif; ?>
- 
   <?php if (!empty($author)): ?>
     <div id="author" class="overview-field">
       <h3><?php print t('Author:') ?></h3>
@@ -121,7 +120,6 @@
  <h3><?php print t('Time accessed:') ?></h3>
  <h3><?php print t('Rights:') ?></h3>
  -->
- 
   <?php if (!empty($subject)): ?>
     <div id="subject" class="overview-field">
       <h3><?php print t('Subject Heading(s):') ?></h3>
