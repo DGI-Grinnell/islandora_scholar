@@ -1,0 +1,30 @@
+{
+    "abbreviations": {
+        "default": {
+            "title": {
+                "1st Session": "1st Sess."
+            }
+        }, 
+        "us": {
+            "title": {
+                "1st Session": "1st Sess."
+            }
+        }
+    }, 
+    "bibentries": false, 
+    "bibsection": false, 
+    "citation_items": false, 
+    "citations": false, 
+    "csl": "<style \n      xmlns=\"http://purl.org/net/xbiblio/csl\"\n      class=\"note\"\n      version=\"1.0\">\n  <info>\n    <id />\n    <title />\n    <updated>2009-08-10T04:49:00+09:00</updated>\n  </info>\n  <citation>\n    <layout>\n       <text variable=\"event\" form=\"short\"/>\n    </layout>\n  </citation>\n</style>", 
+    "input": [
+        {
+            "event": "1st Session", 
+            "id": "ITEM-1", 
+            "note": "{:jurisdiction:us}", 
+            "title": "Hello", 
+            "type": "bill"
+        }
+    ], 
+    "mode": "citation", 
+    "result": "1st Sess."
+}
