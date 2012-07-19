@@ -40,8 +40,12 @@ function citation_exporter_export() {
  * Includes a meta tag header that will redirect the users browser to download the exported file.
  */
 function citation_exporter_include_download_redirect() {
+  watchdog('citation_exporter','Calling citation_exporter_include_download_redirect()');
   module_load_include('inc', 'citation_exporter', 'CitationExporter');
   if (CitationExporter::ReadyToExport()) {
     drupal_goto(MENU_CITATION_EXPORTER_EXPORT);
+  }
+  else {
+    watchdog('citation_exporter','Not ready to export: %data',array('%data' => print_r(CitationExporter::::GetExportTable(),TRUE)));
   }
 }
