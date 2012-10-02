@@ -24,10 +24,22 @@
       <div id="abstract-content" class="overview-field-content"><?php print print_r($abstract, TRUE); ?></div>
     </div>
   <?php endif; ?>
-  <?php if (!empty($author)): ?>
+  <?php if (strlen($author) > 2): ?>
     <div id="author" class="overview-field">
       <h3><?php print t('Author:') ?></h3>
       <div id="author-content" class="author-field-content"><?php print print_r($author, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($editor)): ?>
+    <div id="editor" class="overview-field">
+      <h3><?php print t('Editor:') ?></h3>
+      <div id="editor-content" class="editor-field-content"><?php print print_r($editor, TRUE); ?></div>
+    </div>
+  <?php endif;?>
+  <?php if (!empty($contributor)): ?>
+    <div id="contributor" class="overview-field">
+      <h3><?php print t('Contributor:') ?></h3>
+      <div id="contributor-content" class="contributor-field-content"><?php print print_r($contributor, TRUE); ?></div>
     </div>
   <?php endif;?>
   <?php if (!empty($advisor)): ?>
@@ -36,96 +48,58 @@
       <div id="advisor-content" class="advisor-field-content"><?php print print_r($advisor, TRUE); ?></div>
     </div>
   <?php endif;?>
- <!--
- <h3><?php print t('Editor:') ?></h3>
- <h3><?php print t('Contributor:') ?></h3>
- <h3><?php print t('Advisor:') ?></h3>
- <h3><?php print t('Illustrator:') ?></h3>
- <h3><?php print t('Office:') ?></h3>
- <h3><?php print t('Dept.:') ?></h3>
- <h3><?php print t('Concentration:') ?></h3>
- <h3><?php print t('Program:') ?></h3>
- <h3><?php print t('Corporate Author:') ?></h3>
- <h3><?php print t('Investigator Name:') ?></h3>
- <h3><?php print t('Subject:') ?></h3>
- <h3><?php print t('LCSH:') ?></h3>
- <h3><?php print t('Topic:') ?></h3>
- <h3><?php print t('Place:') ?></h3>
- <h3><?php print t('Chonological:') ?></h3>
- <h3><?php print t('Keyword:') ?></h3>
- <h3><?php print t('Other:') ?></h3>
- <h3><?php print t('Classification:') ?></h3>
- <h3><?php print t('LLC:') ?></h3>
- <h3><?php print t('DCC:') ?></h3>
- <h3><?php print t('Publisher:') ?></h3>
- <h3><?php print t('Coverage:') ?></h3>
- <h3><?php print t('Latitude:') ?></h3>
- <h3><?php print t('Longitude:') ?></h3>
- <h3><?php print t('Temporal:') ?></h3>
- <h3><?php print t('Date:') ?></h3>
- <h3><?php print t('Format:') ?></h3>
- <h3><?php print t('Medum:') ?></h3>
- <h3><?php print t('Mimetype:') ?></h3>
- <h3><?php print t('Extent:') ?></h3>
- <h3><?php print t('Relations:') ?></h3>
- <h3><?php print t('URI:') ?></h3>
- <h3><?php print t('Is from of:') ?></h3>
- <h3><?php print t('Is part of series:') ?></h3>
- <h3><?php print t('Is part of series URI:') ?></h3>
- <h3><?php print t('Is part of:') ?></h3>
- <h3><?php print t('Is part of URI:') ?></h3>
- <h3><?php print t('Has part:') ?></h3>
- <h3><?php print t('Haer part URI:') ?></h3>
- <h3><?php print t('Is based on:') ?></h3>
- <h3><?php print t('Is based on URI:') ?></h3>
- <h3><?php print t('Is referenced by:') ?></h3>
- <h3><?php print t('Is referenced by URI:') ?></h3>
- <h3><?php print t('Requires:') ?></h3>
- <h3><?php print t('Requires URI:') ?></h3>
- <h3><?php print t('Replaces:') ?></h3>
- <h3><?php print t('Replaces URI:') ?></h3>
- <h3><?php print t('Is Replaced by:') ?></h3>
- <h3><?php print t('Is Replaced by URI:') ?></h3>
- <h3><?php print t('Has version:') ?></h3>
- <h3><?php print t('Has version URI:') ?></h3>
- <h3><?php print t('Is version of:') ?></h3>
- <h3><?php print t('Is version of URI:') ?></h3>
- <h3><?php print t('Alternative title:') ?></h3>
- <h3><?php print t('Identifiers:') ?></h3>
- <h3><?php print t('ISBN:') ?></h3>
- <h3><?php print t('ISSN:') ?></h3>
- <h3><?php print t('Identifier:') ?></h3>
- <h3><?php print t('Edition:') ?></h3>
- <h3><?php print t('Citation:') ?></h3>
- <h3><?php print t('Government Document Number:') ?></h3>
- <h3><?php print t('Other Identifier:') ?></h3>
- <h3><?php print t('International Standard Music Number:') ?></h3>
- <h3><?php print t('Uniform Resource Locator:') ?></h3>
- <h3><?php print t('Serial item and Contribution Identifier:') ?></h3>
- <h3><?php print t('Grant or Proposal Number:') ?></h3>
- <h3><?php print t('DOI:') ?></h3>
- <h3><?php print t('Description:') ?></h3>
- <h3><?php print t('Table of Contents:') ?></h3>
- <h3><?php print t('Description:') ?></h3>
- <h3><?php print t('Affiliation:') ?></h3>
- <h3><?php print t('Description URI:') ?></h3>
- <h3><?php print t('Sponsor:') ?></h3>
- <h3><?php print t('Language:') ?></h3>
- <h3><?php print t('Date Accessioned:') ?></h3>
- <h3><?php print t('Date Created:') ?></h3>
- <h3><?php print t('Date Available:') ?></h3>
- <h3><?php print t('Submission date:') ?></h3>
- <h3><?php print t('Date of Publication:') ?></h3>
- <h3><?php print t('Type:') ?></h3>
- <h3><?php print t('Time accessed:') ?></h3>
- <h3><?php print t('Rights:') ?></h3>
- -->
+  <?php if (!empty($illustrator)): ?>
+    <div id="illustrator" class="overview-field">
+      <h3><?php print t('Illustrator:') ?></h3>
+      <div id="illustrator-content" class="illustrator-field-content"><?php print print_r($illustrator, TRUE); ?></div>
+    </div>
+  <?php endif;?>
+  <?php if (!empty($corp_author)): ?>
+    <div id="corp_author" class="overview-field">
+      <h3><?php print t('Corporate Author:') ?></h3>
+      <div id="corp_author-content" class="corp_author-field-content"><?php print print_r($corp_author, TRUE); ?></div>
+    </div>
+  <?php endif;?>
+  <?php if (!empty($supporting_host)): ?>
+    <div id="supporting_host" class="overview-field">
+      <h3><?php print t('Supporting Host:') ?></h3>
+      <div id="supporting_host-content" class="supporting_host-field-content"><?php print print_r($supporting_host, TRUE); ?></div>
+    </div>
+  <?php endif;?>
   <?php if (!empty($subject)): ?>
     <div id="subject" class="overview-field">
       <h3><?php print t('Subject Heading(s):') ?></h3>
       <div id="subject-content" class="overview-field-content"><?php print print_r($subject, TRUE); ?></div>
     </div>
   <?php endif; ?>
+  <?php if (!empty($geographic)): ?>
+    <div id="geographic" class="overview-field">
+      <h3><?php print t('Place(s):') ?></h3>
+      <div id="geographic-content" class="overview-field-content"><?php print print_r($geographic, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (($temporal_range > 3) || !empty($temporal)): ?>
+    <div id="temporal" class="overview-field">
+      <h3><?php print t('Time Period(s):') ?></h3>
+      <div id="temporal-content" class="overview-field-content"><?php print print_r($temporal, TRUE); ?></div>
+	  <?php if ($temporal_range > 3): ?>
+      		<div id="temporal_range-content" class="overview-field-content"><?php print print_r($temporal_range, TRUE); ?></div>
+	  <?php endif; ?>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($classification_lcc)): ?>
+    <div id="classification_lcc" class="overview-field">
+      <h3><?php print t('Call Number(s):') ?></h3>
+      <div id="classification_lcc-content" class="overview-field-content"><?php print print_r($classification_lcc, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($classification_dcc)): ?>
+    <div id="classification_dcc" class="overview-field">
+      <h3><?php print t('Call Number(s):') ?></h3>
+      <div id="classification_dcc-content" class="overview-field-content"><?php print print_r($classification_dcc, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+
   <?php if (!empty($work_type)): ?>
     <div id="work-type" class="overview-field">
       <h3><?php print t('Work Type:') ?></h3>
@@ -178,4 +152,170 @@
       </ul>
     </div>
   <?php endif; ?>
+  <?php if (!empty($publisher)): ?>
+    <div id="publisher" class="overview-field">
+      <h3><?php print t('Publisher:') ?></h3>
+      <div id="publisher-content" class="overview-field-content"><?php print print_r($publisher, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($otherVersion)): ?>
+    <div id="otherVersion" class="overview-field">
+      <h3><?php print t('Other Version(s):') ?></h3>
+      <div id="otherVersion-content" class="overview-field-content"><?php print print_r($otherVersion, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($otherVersion)): ?>
+    <div id="isReplacedBy" class="overview-field">
+      <h3><?php print t('Is Replaced By:') ?></h3>
+      <div id="isReplacedBy-content" class="overview-field-content"><?php print print_r($isReplacedBy, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($replaces)): ?>
+    <div id="replaces" class="overview-field">
+      <h3><?php print t('Replaces:') ?></h3>
+      <div id="replaces-content" class="overview-field-content"><?php print print_r($replaces, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($requires)): ?>
+    <div id="requires" class="overview-field">
+      <h3><?php print t('Requires:') ?></h3>
+      <div id="requires-content" class="overview-field-content"><?php print print_r($requires, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($isBasedOn)): ?>
+    <div id="isBasedOn" class="overview-field">
+      <h3><?php print t('Is Based On:') ?></h3>
+      <div id="isBasedOn-content" class="overview-field-content"><?php print print_r($isBasedOn, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($hasPart)): ?>
+    <div id="hasPart" class="overview-field">
+      <h3><?php print t('Has Part:') ?></h3>
+      <div id="hasPart-content" class="overview-field-content"><?php print print_r($hasPart, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($otherVersion)): ?>
+    <div id="isPartOfSeries" class="overview-field">
+      <h3><?php print t('Is Part of Series:') ?></h3>
+      <div id="isPartOfSeries-content" class="overview-field-content"><?php print print_r($isPartOfSeries, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($isPartOf)): ?>
+    <div id="isPartOf" class="overview-field">
+      <h3><?php print t('Is Part of:') ?></h3>
+      <div id="isPartOf-content" class="overview-field-content"><?php print print_r($isPartOf, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($isFormOf)): ?>
+    <div id="otherVersion" class="overview-field">
+      <h3><?php print t('If a Form of:') ?></h3>
+      <div id="isFormOf-content" class="overview-field-content"><?php print print_r($isFormOf, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+
+    <?php if (!empty($dateCaptured)): ?>
+    <div id="isbn" class="overview-field">
+      <h3><?php print t('ISBN:') ?></h3>
+      <div id="isbn-content" class="overview-field-content"><?php print print_r($isbn, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+    <?php if (!empty($dateCaptured)): ?>
+    <div id="issn" class="overview-field">
+      <h3><?php print t('ISSN:') ?></h3>
+      <div id="issn-content" class="overview-field-content"><?php print print_r($issn, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+    <?php if (!empty($uri)): ?>
+    <div id="uri" class="overview-field">
+      <h3><?php print t('URI:') ?></h3>
+      <div id="uri-content" class="overview-field-content"><?php print print_r($uri, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+    <?php if (!empty($gov)): ?>
+    <div id="gov" class="overview-field">
+      <h3><?php print t('Government Document Identifier:') ?></h3>
+      <div id="gov-content" class="overview-field-content"><?php print print_r($gov, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+    <?php if (!empty($sici)): ?>
+    <div id="sici" class="overview-field">
+      <h3><?php print t('Serial Item and Contribution Identifier:') ?></h3>
+      <div id="sici-content" class="overview-field-content"><?php print print_r($sici, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+    <?php if (!empty($ismn)): ?>
+    <div id="ismn" class="overview-field">
+      <h3><?php print t('ISMN:') ?></h3>
+      <div id="ismn-content" class="overview-field-content"><?php print print_r($ismn, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+    <?php if (!empty($grant)): ?>
+    <div id="grant" class="overview-field">
+      <h3><?php print t('Grant Identifier:') ?></h3>
+      <div id="grant-content" class="overview-field-content"><?php print print_r($grant, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+    <?php if (!empty($doi)): ?>
+    <div id="doi" class="overview-field">
+      <h3><?php print t('DOI:') ?></h3>
+      <div id="doi-content" class="overview-field-content"><?php print print_r($doi, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+    <?php if (!empty($other)): ?>
+    <div id="other" class="overview-field">
+      <h3><?php print t('Other Identifier:') ?></h3>
+      <div id="other-content" class="overview-field-content"><?php print print_r($other, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+
+
+  <?php if (!empty($dateCaptured)): ?>
+    <div id="dateCaptured" class="overview-field">
+      <h3><?php print t('Date Captured:') ?></h3>
+      <div id="dateCaptured-content" class="overview-field-content"><?php print print_r($dateCaptured, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($dateValid)): ?>
+    <div id="dateValid" class="overview-field">
+      <h3><?php print t('Date Valid:') ?></h3>
+      <div id="dateValid-content" class="overview-field-content"><?php print print_r($dateValid, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($dateAvailable)): ?>
+    <div id="dateAvailable" class="overview-field">
+      <h3><?php print t('Date Available:') ?></h3>
+      <div id="dateAvailable-content" class="overview-field-content"><?php print print_r($dateAvailable, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($dateCreated)): ?>
+    <div id="dateCreated" class="overview-field">
+      <h3><?php print t('Date Created:') ?></h3>
+      <div id="dateCreated-content" class="overview-field-content"><?php print print_r($dateCreated, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($copyrightDate)): ?>
+    <div id="copyrightDate" class="overview-field">
+      <h3><?php print t('Copyright Date:') ?></h3>
+      <div id="copyrightDate-content" class="overview-field-content"><?php print print_r($copyrightDate, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($dateIssued)): ?>
+    <div id="dateIssued" class="overview-field">
+      <h3><?php print t('Date Issued:') ?></h3>
+      <div id="dateIssued-content" class="overview-field-content"><?php print print_r($dateIssued, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($accessCondition)): ?>
+    <div id="accessCondition" class="overview-field">
+      <h3><?php print t('Access Conditions:') ?></h3>
+      <div id="accessCondition-content" class="overview-field-content"><?php print print_r($accessCondition, TRUE); ?></div>
+    </div>
+  <?php endif; ?>
+  <?php if (!empty($genre)): ?>
+    <div id="genre" class="overview-field">
+      <h3><?php print t('Genre:') ?></h3>
+      <div id="genre-content" class="genre-field-content"><?php print print_r($genre, TRUE); ?></div>
+    </div>
+  <?php endif;?>
+
 </div>

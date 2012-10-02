@@ -143,9 +143,8 @@ EOT
         '#type' => 'select',
         '#default_value' => (isset($values['sort']) ? $values['sort'] : 'score'),
         '#options' => islandora_build_substitution_list(variable_get('islandora_search_sort', <<<EOT
-score ~ Relevance
-dc.title ~ Title
-mods.dateIssued ~ Date Issued
+mods.indexTitle ~ Title
+mods.dateCreated_s ~ Date Created
 EOT
           )),
       ),
@@ -212,7 +211,7 @@ function scholar_search_form_store_sort_in_session(array &$form_state) {
 }
 
 function scholar_search_advanced_add_field() {
-  module_load_include('inc', 'xml_form_elements', 'Ahah');
+  module_load_include('inc', 'php_lib', 'Ahah');
   list($form_id, $form_build_id, $form, $form_state) = Ahah::getFormInfo();
   $form = Ahah::processForm($form_id, $form, $form_state);
   $form_state['values']['terms'][] = array('');
@@ -221,7 +220,7 @@ function scholar_search_advanced_add_field() {
 }
 
 function scholar_search_advanced_remove_field() {
-  module_load_include('inc', 'xml_form_elements', 'Ahah');
+  module_load_include('inc', 'php_lib', 'Ahah');
   list($form_id, $form_build_id, $form, $form_state) = Ahah::getFormInfo();
   $form = Ahah::processForm($form_id, $form, $form_state);
   $field = $form_state['clicked_button']['#field'];

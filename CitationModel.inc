@@ -16,6 +16,10 @@ function contributor_format($family,$given) {
   return "$family, $given";
 }
 
+function temporal_format($start,$end) {
+  return "$start - $end";
+}
+
 /**
  * Models the display information a field books should have.
  */
@@ -154,8 +158,36 @@ function template_preprocess_scholar_overview_panel_citation(array &$variables) 
         'ccsg_program' => 'string()', // @todo
         'peer_reviewed' => '/mods:mods/mods:note[@type="peer reviewed"]',
         'accessnum' => '/mods:mods/mods:identifier[@type="accessnum"]',
-        'url' => '/mods:mods/mods:location/mods:url'
+	'url' => '/mods:mods/mods:location/mods:url',
+	'corp_author' => '/mods:mods/mods:name[@type="corporate"]/mods:role[mods:roleTerm="author"]/../mods:namePart',
+	'supporting_host' => '/mods:mods/mods:name[@type="corporate"]/mods:role[mods:roleTerm="Supporting host"]/../mods:namePart',
+	'geographic' => '/mods:mods/mods:subject/mods:geographic',
+	'classification_dcc' => '/mods:mods/mods:classification[@authority="dcc"]',
+	'classification_lcc' => '/mods:mods/mods:classification[@authority="lcc"]',
+	'dateCaptured' => '/mods:mods/mods:originInfo/mods:dateCaptured',
+	'dateValid' => '/mods:mods/mods:originInfo/mods:dateValid',
+	'dateAvailable' => '/mods:mods/mods:originInfo/mods:dateOther[@type="available"]',
+	'dateCreated' => '/mods:mods/mods:originInfo/mods:dateCreated',
+	'copyrightDate' => '/mods:mods/mods:originInfo/mods:copyrightDate',
+	'dateIssued' => '/mods:mods/mods:originInfo/mods:dateIssued',
+	'accessCondition' => '/mods:mods/mods:accessCondition[@type="useAndReproduction"]',
+	'temporal' => '/mods:mods/mods:subject/mods:temporal[not(@*)]',
+	'genre' => '/mods:mods/mods:genre',
+	'publisher' => '/mods:mods/mods:originInfo/mods:publisher'
       );
+
+
+      $relation_types = array('otherVersion','isReplacedBy','replaces','requires','isBasedOn','hasPart','isPartOfSeries','isPartOf','isFormOf');
+      foreach ($relation_types as $relation_type) {
+        $relations[$relation_type] = '/mods:mods/mods:relatedItem[@type="'. $relation_type  .'"]/mods:titleInfo/mods:title';
+      }
+
+      $identifier_types = array('gov','uri','sici','ismn','grant','issn','isbn','doi','other');
+      foreach ($identifier_types as $identifier_type) {
+        $identifiers[$identifier_type] = '/mods:mods/mods:identifier[@type="'. $identifier_type  .'"]';
+      }
+
+      $parts = array_merge($parts, $relations, $identifiers);
 
       foreach ($parts as $key => $xpath) {
         if ($nodes = $mods->xpath($xpath)) {
@@ -163,15 +195,21 @@ function template_preprocess_scholar_overview_panel_citation(array &$variables) 
         }
       }
 
-      $contributor_types = array('author','advisor');
+      $contributor_types = array('author','editor','advisor','contributor','illustrator');
       foreach ($contributor_types as $contributor_type) {
-        $contributors = $mods->xpath('/mods:mods/mods:name[@type="personal"]/mods:role[mods:roleTerm="'. $contributor_type  .'"]');
+//        $contributors = $mods->xpath('/mods:mods/mods:name[@type="personal"]/mods:role[mods:roleTerm="'. $contributor_type  .'"]');
         $contributors_given = $mods->xpath('/mods:mods/mods:name[@type="personal"]/mods:role[mods:roleTerm="'. $contributor_type  .'"]/../mods:namePart[@type="given"]');
         $contributors_family = $mods->xpath('/mods:mods/mods:name[@type="personal"]/mods:role[mods:roleTerm="'. $contributor_type  .'"]/../mods:namePart[@type="family"]');
-        if ($contributors) {
+        if (!empty($contributors_given)) {
           $variables[$contributor_type] = implode('<br/>', array_map('contributor_format',$contributors_family,$contributors_given));
-        }
+	}
       }
+
+        $start = $mods->xpath('/mods:mods/mods:subject/mods:temporal[@point="start"]');
+        $end = $mods->xpath('/mods:mods/mods:subject/mods:temporal[@point="end"]');
+        if (!empty($start)) {
+	    $variables['temporal_range'] = implode('<br/>', array_map('temporal_format',$start,$end));
+	}
     }
   }
 }

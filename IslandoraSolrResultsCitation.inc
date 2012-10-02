@@ -48,6 +48,7 @@ class IslandoraSolrResultsCitation extends IslandoraSolrResults {
     }
     islandora_solr_search_pager_init($total, $query_processor->solrLimit);
     $output .= '<div class="content">';
+watchdog('citation_exporter','About to include the scholar form');
     $output .= drupal_get_form('scholar_search_results_form', $query_processor);
     $output .= theme('pager', null, $query_processor->solrLimit, 0, null, 5);
     $output .= "</div>";
